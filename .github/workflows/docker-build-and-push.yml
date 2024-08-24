@@ -72,7 +72,7 @@ jobs:
             echo "MONGO_URI=${{ secrets.MONGO_URI }}"
             echo "EXPRESS_PORT=${{ secrets.EXPRESS_PORT }}"
 
-      - name: Build Docker image
+      - name: Build and push Docker image
         id: build
         uses: docker/build-push-action@v5
         with:
@@ -82,15 +82,8 @@ jobs:
           build-args: |
             MONGO_URI=${{ secrets.MONGO_URI }}
             EXPRESS_PORT=${{ secrets.EXPRESS_PORT }}
-          push: false  # Build the image but do not push yet
+          push: true  # Build the image but do not push yet
 
-      - name: Push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          tags: happycoder07/backend:latest
-          push: true  # Push the built image to Docker Hub
-
+      
       - name: Logout from Docker Hub
         run: docker logout

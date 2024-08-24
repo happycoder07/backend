@@ -17,7 +17,7 @@ ARG MONGO_URI
 ARG EXPRESS_PORT
 
 # Set environment variables using the build arguments
-ENV MONGO_URI="mongodb+srv://faltukam567:TcgIdesd4bKG5RO5@mongocluster.8o9t1.mongodb.net/?retryWrites=true&w=majority&appName=mongocluster"
+ENV MONGO_URI=${MONGO_URI}
 ENV EXPRESS_PORT=${EXPRESS_PORT}
 
 # Example command to check values during the build
