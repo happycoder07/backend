@@ -23,9 +23,9 @@ ENV EXPRESS_PORT=$EXPRESS_PORT
 
 
 # Copy the build artifacts from the GitHub Actions workflow
-COPY --from=builder /dist /usr/src/app/dist
-COPY --from=builder ecosystem.config.js /usr/src/app/
-COPY --from=builder package.json /usr/src/app/
+COPY /dist /usr/src/app/dist
+COPY ecosystem.config.js /usr/src/app/
+COPY package.json /usr/src/app/
 
 # Install PM2 globally
 RUN npm install -g pm2
