@@ -104,14 +104,7 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-    - name: Set up AWS CLI
-      uses: aws-actions/configure-aws-credentials@v2
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ap-south-1
-
-
+    
     - name: Install kubectl
       run: |
         sudo apt install basez
@@ -120,7 +113,26 @@ jobs:
         sudo mv ./kubectl /usr/local/bin
         kubectl version --client
 
-   
+    - name: Set up AWS CLI
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-south-1
+
+    - name: Generate kubeconfig
+      run: |
+        {
+            echo 'EKS_CREDS<<EOF'
+            aws eks update-kubeconfig --region ap-south-1 --name kube8cluster --dry-run | base64
+            echo EOF
+        } >> $GITHUB_ENV
+    - uses: tale/kubectl-action@v1
+      with:
+        base64-kube-config: ${{ env.EKS_CREDS }}
+    - run: kubectl get pods
+
+
 
     # - name: Decode and set up kubeconfig
     #   run: |
