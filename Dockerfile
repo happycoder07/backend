@@ -18,8 +18,12 @@ ARG EXPRESS_PORT
 
 
 # Set environment variables
-ENV MONGO_URI=$MONGO_URI
-ENV EXPRESS_PORT=$EXPRESS_PORT
+
+ENV MONGO_URI=${MONGO_URI}
+ENV EXPRESS_PORT=${EXPRESS_PORT}
+
+# Example command to check values
+#RUN echo "Mongo URI: ${MONGO_URI}" && echo "Express Port: ${EXPRESS_PORT}"
 
 
 # Copy the build artifacts from the GitHub Actions workflow
@@ -39,7 +43,7 @@ RUN npm install --only=production
 
 # Expose the port that the app runs on
 
-# Expose port 5001 to the outside world
+# Expose port 5000 to the outside world
 EXPOSE $EXPRESS_PORT
 
 # Start the application using PM2 and the ecosystem file
