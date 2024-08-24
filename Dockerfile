@@ -27,8 +27,12 @@ COPY /dist /usr/src/app/dist
 COPY ecosystem.config.js /usr/src/app/
 COPY package.json /usr/src/app/
 
-# Install PM2 globally
+USER root
 RUN npm install -g pm2
+
+# Switch back to non-root user
+USER appuser
+
 
 # Install only production dependencies
 RUN npm install --only=production
