@@ -21,7 +21,7 @@ ENV MONGO_URI=${MONGO_URI}
 ENV EXPRESS_PORT=${EXPRESS_PORT}
 
 # Example command to check values during the build
-#RUN echo "Mongo URI: ${MONGO_URI}" && echo "Express Port: ${EXPRESS_PORT}"
+RUN echo "Mongo URI: ${MONGO_URI}" && echo "Express Port: ${EXPRESS_PORT}"
 
 # Copy the build artifacts from the GitHub Actions workflow
 COPY /dist /usr/src/app/dist
