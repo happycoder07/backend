@@ -66,6 +66,12 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+
+      - name: Debug secrets
+        run: |
+            echo "MONGO_URI=${{ secrets.MONGO_URI }}"
+            echo "EXPRESS_PORT=${{ secrets.EXPRESS_PORT }}"
+
       - name: Build Docker image
         id: build
         uses: docker/build-push-action@v5
