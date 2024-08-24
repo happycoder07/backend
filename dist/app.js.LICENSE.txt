@@ -37,6 +37,10 @@ object-assign
  */
 
 /*!
+ * Check if the given document only has primitive values
+ */
+
+/*!
  * Compile other Buffer methods marking this buffer as modified.
  */
 
@@ -54,6 +58,11 @@ object-assign
 
 /*!
  * Converts to POJO when you use the document for querying
+ */
+
+/*!
+ * Create a new default connection (`mongoose.connection`) for a Mongoose instance.
+ * No-op if there is already a default connection.
  */
 
 /*!
@@ -78,7 +87,16 @@ object-assign
  */
 
 /*!
+ * Get this schema's default toObject/toJSON options, including Mongoose global
+ * options.
+ */
+
+/*!
  * Give the constructor the ability to emit events.
+ */
+
+/*!
+ * Handle casting $elemMatch operators
  */
 
 /*!
@@ -132,6 +150,10 @@ object-assign
 
 /*!
  * Internal helper for updateMany, updateOne
+ */
+
+/*!
+ * Internal shallow clone alternative to `$toObject()`: much faster, no options processing
  */
 
 /*!
