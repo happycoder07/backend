@@ -1,7 +1,7 @@
 module.exports = {
     apps: [{
       name: 'my-express-app',
-      script: './app.js',
+      script: './dist/app.js',
       instances: 'max',
       autorestart: true,
       watch: false,
