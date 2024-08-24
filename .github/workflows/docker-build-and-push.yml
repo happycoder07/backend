@@ -114,7 +114,7 @@ jobs:
 
     - name: Install kubectl
       run: |
-        curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.12/2021-09-22/bin/linux/amd64/kubectl
+        curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.2/2024-07-12/bin/linux/amd64/kubectl
         chmod +x ./kubectl
         sudo mv ./kubectl /usr/local/bin
         kubectl version --client
