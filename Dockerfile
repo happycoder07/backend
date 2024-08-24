@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:current-alpine3.20
 
 # Create a non-root user and group
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup

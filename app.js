@@ -52,7 +52,7 @@ app.get('/api/data', (req, res) => {
   });
   
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.EXPRESS_PORT || 5000 ;
 console.log(listEndpoints(app));
 
 
