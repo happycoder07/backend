@@ -149,12 +149,12 @@ jobs:
 
     - name: Apply Kubernetes manifests
       run: |
-        kubectl apply -f ./k8s/deployment.yml
-        kubectl apply -f ./k8s/service.yml
-        kubectl apply -f ./k8s/ingress.yml
+        kubectl apply -f ./k8s/deployment.yml -v=4
+        kubectl apply -f ./k8s/service.yml -v=4
+        kubectl apply -f ./k8s/ingress.yml -v=4
 
     - name: Verify deployment
       run: |
-        kubectl get pods
-        kubectl get services
-        kubectl get ingress
+        kubectl get pods -v=4
+        kubectl get services -v=4
+        kubectl get ingress -v=4

@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: express-service
+  namespace: express-space
+
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-eip-allocations: "eipalloc-07e12983d96f871ee"
 

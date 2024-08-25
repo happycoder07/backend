@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: express-app
+  namespace: express-space
 spec:
   replicas: 2
   selector:
@@ -17,5 +18,7 @@ spec:
         image: happycoder07/backend:latest
         ports:
         - containerPort: 5000
+      nodeSelector:
+        nodegroup: express-app-node-group
       imagePullSecrets:
       - name: regcred
